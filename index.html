@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les maths</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script src="/assets/js/GeometricSuit.js" type="module"></script>
+  <script src="/assets/js/PythagoreTheorem.js" type="module"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <style>
+    .mb-16 {
+      margin-bottom: 16px;
+    }
+
+    .pt-16 {
+      padding-top: 16px;
+    }
+  </style>
+
+</head>
+
+<body data-bs-theme="dark">
+  <main>
+    <nav class="navbar bg-body-tertiary mb-16">
+      <div class="container">
+        <a class="navbar-brand" href="/" style="font-size: 32px;">
+          <span style="font-weight: bold;">Σ</span>athématiques
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="card mb-16" style="">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#868e96"></rect></svg><div class="card-body">
+          <h5 class="card-title">Suites géométriques</h5>
+          <p class="card-text">Calcule les suites géométriques et regarde chaque valeurs, clé avec le détails des calcules !</p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#geometricSuit" id="calc">Suites Géométriques</button>
+        </div>
+      </div>
+
+      
+      <div class="card mb-16">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#868e96"></rect></svg><div class="card-body">
+          <h5 class="card-title">Suites géométriques</h5>
+          <p class="card-text">Calculer la longueur de l'hypotenus d'un triangle réctangle avec le détail du calcule !</p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#PythagoreTheorem">Théorème de Pythagore</button>
+        </div>
+      </div>
+
+      <div class="card mb-16" aria-hidden="true">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#868e96"></rect></svg><div class="card-body">
+        <div class="card-body">
+          <h5 class="card-title placeholder-glow">
+            <span class="placeholder col-6"></span>
+          </h5>
+          <p class="card-text placeholder-glow">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-3"></span>
+            <span class="placeholder col-9"></span>
+            <span class="placeholder col-8"></span>
+          </p>
+          <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+        </div>
+      </div>
+
+      <div class="modal fade" id="geometricSuit" tabindex="-1" data-bs-theme="dark" aria-labelledby="geometricSuitLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Suite Géométriques</h5>
+            </div>
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <i class="input-group-text bi bi-123"></i>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-start" placeholder="Nombre de départ" min=0 value=200>
+                  <label for="input-start">Nombre de départ</label>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <i class="input-group-text bi bi-123"></i>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-reason" placeholder="Raison" min=0 value=2>
+                  <label for="input-reason">Raison</label>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <i class="input-group-text bi bi-123"></i>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-rank" placeholder="Rang" min=0 value=10 id="input-rank">
+                  <label for="input-rank">Rang</label>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="input-group mb-3" style="margin-bottom: 16px;">
+                <span class="input-group-text">
+                  <i class="bi bi-search"></i>
+                </span>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-search" placeholder="Username">
+                  <label for="input-search">Chercher une clé spécifique</label>
+                </div>
+              </div>
+
+              <table class="table table-bordered table-striped" id="modal-table">
+                <thead>
+                  <tr class="">
+                    <th scope="col">Clé</th>
+                    <th scope="col">Valeur</th>
+                    <th scope="col">Détail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="PythagoreTheorem" tabindex="-1" data-bs-theme="dark" aria-labelledby="PythagoreTheoremLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Théorème de Pythagore</h5>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-light" role="alert">
+                Un triangle est rectangle si et seulement si le carré de l'hypothenuse est égale à le somme des carrés des longueurs des deux autres côtés
+              </div>
+
+              <div class="input-group mb-3">
+                <b class="input-group-text">AB</b>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-ab" placeholder="Raison" min=0 value=8>
+                  <label for="input-ab">Longueur côté AB</label>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <b class="input-group-text">AC</b>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="input-ac" placeholder="Raison" min=0 value=5>
+                  <label for="input-ac">Longueur côté AC</label>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="d-flex justify-content-center">
+                <img src="/assets/img/triangle-rectangle.png" class="img-fluid" alt="Triangle réctangle" style="filter: invert(1);">
+              </div>
+
+              <div class="d-flex justify-content-center" id="PythagoreTheorem-result">
+                <p id="render">
+                  \[BC^2 = AB^2 + AC^2\]
+                  \[BC^2 = 8^2 + 5^2\]
+                  \[BC^2 = 64 + 25\]
+                  \[BC = \sqrt{89}\]
+                  \[BC = 9.433981132056603\]
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

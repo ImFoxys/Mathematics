@@ -43,7 +43,7 @@ class GeometricSuit {
   all() {
     const u = new Array();
     for(let i = 0; i < this.rank; i++) {
-      u.push(this.start * Math.pow(this.reason, i));
+      u.push(this.start * this.reason ** i);
     };
 
     return u;
@@ -55,15 +55,15 @@ class GeometricSuit {
    * @returns { number }
    */
   get(n) {
-    return this.start * Math.pow(this.reason, n);
+    return this.start * this.reason ** n;
   };
 };
 
 window.addEventListener('DOMContentLoaded', () => {
   function calc() {
-    const start = parseInt(document.getElementById('input-start').value);
-    const reason = parseInt(document.getElementById('input-reason').value);
-    const rank = parseInt(document.getElementById('input-rank').value) + 1;
+    const start = Number(document.getElementById('input-start').value);
+    const reason = Number(document.getElementById('input-reason').value);
+    const rank = Number(document.getElementById('input-rank').value) + 1;
 
     const suit = new GeometricSuit(start, reason, rank);
 
@@ -97,9 +97,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   document.getElementById('input-search')?.addEventListener('input', function() {
-    const start = parseInt(document.getElementById('input-start').value);
-    const reason = parseInt(document.getElementById('input-reason').value);
-    const rank = parseInt(document.getElementById('input-rank').value) + 1;
+    const start = Number(document.getElementById('input-start').value);
+    const reason = Number(document.getElementById('input-reason').value);
+    const rank = Number(document.getElementById('input-rank').value) + 1;
+
+    // console.log(reason);
 
     const suit = new GeometricSuit(start, reason, rank);
 
@@ -112,7 +114,7 @@ window.addEventListener('DOMContentLoaded', () => {
       table.querySelector('tbody').innerHTML = `
         <tr>
           <td>$U_{${this.value}}$ </td>
-          <td>$${suit.get(parseInt(this.value))}$</td>
+          <td>$${suit.get(Number(this.value))}$</td>
           <td id="${id}">$U_{${this.value}}$ = $${start}$ $*$ $${reason}^{${this.value}}$</td>
         </tr>`
 

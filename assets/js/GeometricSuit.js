@@ -43,7 +43,7 @@ class GeometricSuit {
   all() {
     const u = new Array();
     for(let i = 0; i < this.rank; i++) {
-      u.push(this.start * this.reason ** i);
+      u.push(this.start * this.reason ** (i - 1));
     };
 
     return u;
@@ -55,7 +55,7 @@ class GeometricSuit {
    * @returns { number }
    */
   get(n) {
-    return this.start * this.reason ** n;
+    return this.start * this.reason ** (n - 1);
   };
 };
 
@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <tr>
           <td> $U_{${i}}$ </td>
           <td> $${suit.all()[i]}$ </td>
-          <td id="${id}">$U_{${i}}$ = $${start}$ $*$ $ ${reason} ^ {${i}} $</td>
+          <td id="${id}">$U_{${i}}$ = $${start}$ $*$ $ ${reason} ^ {${i - 1}} $</td>
         </tr>` : ''}`;
       };
 
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <tr>
           <td>$U_{${this.value}}$ </td>
           <td>$${suit.get(Number(this.value))}$</td>
-          <td id="${id}">$U_{${this.value}}$ = $${start}$ $*$ $${reason}^{${this.value}}$</td>
+          <td id="${id}">$U_{${this.value}}$ = $${start}$ $*$ $${reason}^{${this.value - 1}}$</td>
         </tr>`
 
         maths(id);
@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td> U<sub>${i}</sub> </td>
             <td> ${suit.all()[i]} </td>
-            <td id="${thisId}">\\[U_${i} = ${start} * ${reason}^${i}\\]</td>
+            <td id="${thisId}">\\[U_${i} = ${start} * ${reason}^${i - 1}\\]</td>
           </tr>` : ''}`;
       };
 
